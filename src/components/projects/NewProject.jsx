@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
-import Input from "./Input.jsx";
-import Modal from "./Modal.jsx";
+import Input from "../../ui/Input.jsx";
+import Modal from "../../ui/Modal.jsx";
 
 export default function NewProject({ onAdd, onCancel }) {
   const modal = useRef();
@@ -35,35 +35,38 @@ export default function NewProject({ onAdd, onCancel }) {
   return (
     <>
       <Modal ref={modal} buttonCaption="Okay">
-        <h2 className="text-xl font-bold text-stone-700 mt-4 my-4">
+        <h2 className="text-xl font-bold text-white mt-4 my-4">
           Invalid Input
         </h2>
-        <p className="text-stone-600 mb-4">
+        <p className="text-slate-300 mb-4">
           Oops ... looks like you forgot to enter a value.
         </p>
-        <p className="text-stone-600 mb-4">
+        <p className="text-slate-300 mb-4">
           Please make sure you provide a valid value for every input field
         </p>
       </Modal>
-      <div className="w-[35rem] mt-16">
+
+      <div className="w-140 mt-16">
         <menu className="flex items-center justify-end gap-4 my-4 list-none">
           <li>
             <button
-              className="px-4 py-2 text-stone-600 hover:text-stone-900"
+              className="px-4 py-2 text-slate-400 hover:text-white"
               onClick={onCancel}
             >
               Cancel
             </button>
           </li>
+
           <li>
             <button
-              className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950"
+              className="px-6 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-400"
               onClick={handleSave}
             >
               Save
             </button>
           </li>
         </menu>
+
         <div>
           <Input type="text" ref={title} label="Title" />
           <Input type="text" ref={description} label="Description" textarea />
