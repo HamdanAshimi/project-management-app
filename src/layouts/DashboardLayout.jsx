@@ -13,7 +13,10 @@ export default function DashboardLayout() {
   });
 
   function handleAddProject(projectData) {
-    const projectId = Math.random();
+    const projectId =
+      projectsState.projects.length > 0
+        ? Math.max(...projectsState.projects.map((project) => project.id)) + 1
+        : 1;
 
     const newProject = {
       ...projectData,

@@ -17,7 +17,7 @@ export default function Login() {
         <LoginForm />
 
         <p className="text-center text-slate-400 mt-6">
-          Don't have an account?{" "}
+          Don't have an account?
           <Link
             to="/signup"
             className="text-blue-400 hover:text-blue-300 font-semibold"

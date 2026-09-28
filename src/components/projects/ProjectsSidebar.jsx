@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import Button from "../../ui/Button";
 
 export default function ProjectSidebar({
@@ -6,6 +8,13 @@ export default function ProjectSidebar({
   onSelectProject,
   selectedProjectId,
 }) {
+  const navigate = useNavigate();
+
+  function handleSelectProject(id) {
+    onSelectProject(id);
+    navigate(`/dashboard/projects/${id}`);
+  }
+
   return (
     <aside className="w-1/3 px-8 py-16 bg-slate-800 text-white md:w-72 rounded-r-xl">
       <h2 className="mb-8 font-bold uppercase md:text-xl text-slate-200">
@@ -31,7 +40,7 @@ export default function ProjectSidebar({
             <li key={project.id}>
               <button
                 className={cssClasses}
-                onClick={() => onSelectProject(project.id)}
+                onClick={() => handleSelectProject(project.id)}
               >
                 {project.title}
               </button>
