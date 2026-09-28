@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import NewProject from "./components/projects/NewProject.jsx";
-import ProjectsSidebar from "./components/projects/ProjectsSidebar.jsx";
-import NoProjectSelected from "./components/projects/NoProjectSelected.jsx";
-import SelectedProject from "./components/projects/SelectedProject.jsx";
+import NewProject from "../components/projects/NewProject.jsx";
+import ProjectsSidebar from "../components/projects/ProjectsSidebar.jsx";
+import NoProjectSelected from "../components/projects/NoProjectSelected.jsx";
+import SelectedProject from "../components/projects/SelectedProject.jsx";
 
 export default function Dashboard() {
   const [projectsState, setProjectsState] = useState({
