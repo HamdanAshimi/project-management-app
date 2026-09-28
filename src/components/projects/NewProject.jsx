@@ -1,9 +1,13 @@
 import { useRef } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 import Input from "../../ui/Input.jsx";
 import Modal from "../../ui/Modal.jsx";
 
-export default function NewProject({ onAdd, onCancel }) {
+export default function NewProject() {
+  const navigate = useNavigate();
+  const { handleAddProject } = useOutletContext();
+
   const modal = useRef();
 
   const title = useRef();
@@ -15,7 +19,6 @@ export default function NewProject({ onAdd, onCancel }) {
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
 
-    // Validation ....
     if (
       enteredTitle.trim() === "" ||
       enteredDescription.trim() === "" ||
@@ -25,11 +28,15 @@ export default function NewProject({ onAdd, onCancel }) {
       return;
     }
 
-    onAdd({
+    handleAddProject({
       title: enteredTitle,
       description: enteredDescription,
       dueDate: enteredDueDate,
     });
+  }
+
+  function handleCancel() {
+    navigate("/dashboard");
   }
 
   return (
@@ -51,7 +58,7 @@ export default function NewProject({ onAdd, onCancel }) {
           <li>
             <button
               className="px-4 py-2 text-slate-400 hover:text-white"
-              onClick={onCancel}
+              onClick={handleCancel}
             >
               Cancel
             </button>
