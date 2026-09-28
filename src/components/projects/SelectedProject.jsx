@@ -14,7 +14,7 @@ export default function SelectedProject({
   });
 
   return (
-    <div className="w-[35rem] mt-16">
+    <div className="w-140 mt-16">
       <header className="pb-4 mb-4 border-b-2 border-slate-700">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold text-white mb-2">
