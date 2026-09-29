@@ -75,6 +75,15 @@ export default function DashboardLayout() {
     }));
   }
 
+  function handleEditTask(id, newText) {
+    setProjectsState((prevState) => ({
+      ...prevState,
+      tasks: prevState.tasks.map((task) =>
+        task.id === id ? { ...task, text: newText } : task,
+      ),
+    }));
+  }
+
   return (
     <main className="h-screen my-8 flex gap-8">
       <ProjectsSidebar
@@ -92,6 +101,7 @@ export default function DashboardLayout() {
           handleDeleteProject,
           handleAddTask,
           handleDeleteTask,
+          handleEditTask,
         }}
       />
     </main>
