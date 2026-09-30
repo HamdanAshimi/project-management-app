@@ -13,6 +13,7 @@ export default function Dashboard() {
     handleDeleteTask,
     handleDeleteProject,
     handleEditTask,
+    handleEditProject,
   } = useOutletContext();
   const selectedProject = projectsState.projects.find(
     (project) => project.id === Number(projectId),
@@ -33,6 +34,7 @@ export default function Dashboard() {
       onAddTask={handleAddTask}
       onDeleteTask={handleDeleteTask}
       onEditTask={handleEditTask}
+      onEditProject={handleEditProject}
       tasks={projectsState.tasks}
     />
   );

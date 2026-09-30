@@ -29,7 +29,7 @@ export default function DashboardLayout() {
       projects: [...prevState.projects, newProject],
     }));
 
-    navigate("/dashboard");
+    navigate(`/dashboard/projects/${projectId}`);
   }
 
   function handleSelectProject(id) {
@@ -39,6 +39,15 @@ export default function DashboardLayout() {
     }));
 
     navigate("/dashboard");
+  }
+
+  function handleEditProject(id, title, description) {
+    setProjectsState((prevState) => ({
+      ...prevState,
+      projects: prevState.projects.map((project) =>
+        project.id === id ? { ...project, title, description } : project,
+      ),
+    }));
   }
 
   function handleDeleteProject() {
@@ -102,6 +111,7 @@ export default function DashboardLayout() {
           handleAddTask,
           handleDeleteTask,
           handleEditTask,
+          handleEditProject,
         }}
       />
     </main>
