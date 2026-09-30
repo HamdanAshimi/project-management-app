@@ -30,28 +30,31 @@ export default function NewTask({ onAdd }) {
   return (
     <>
       <Modal ref={modal} buttonCaption="Okay">
-        <h2 className="text-xl font-bold text-white mt-4 my-4">
+        <h2 className="mt-4 mb-4 text-xl font-bold text-white">
           Invalid Input
         </h2>
-        <p className="text-slate-300 mb-4">
+
+        <p className="mb-4 text-slate-300">
           It looks like you didn't enter a task.
         </p>
-        <p className="text-slate-300 mb-4">
+
+        <p className="mb-4 text-slate-300">
           Please enter a valid task before adding it.
         </p>
       </Modal>
 
-      <div className="flex items-center gap-4">
+      <div className="flex w-full items-center gap-2 sm:gap-4">
         <input
           type="text"
-          className="w-64 px-2 py-1 rounded-sm bg-slate-800 text-white border border-slate-700 placeholder-slate-400 focus:outline-none focus:border-blue-500"
+          placeholder="Enter a task..."
+          className="min-w-0 flex-1 rounded-sm border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none sm:text-base"
           onChange={handleChange}
           value={enteredTask}
           onKeyDown={handleKeyDown}
         />
 
         <button
-          className="text-slate-400 hover:text-blue-400"
+          className="shrink-0 rounded-md bg-blue-500 px-3 py-2 text-sm font-medium text-white hover:bg-blue-400 sm:px-4 sm:text-base"
           onClick={handleClick}
         >
           Add Task

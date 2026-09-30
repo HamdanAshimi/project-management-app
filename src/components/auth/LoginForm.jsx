@@ -11,7 +11,7 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label className="block text-sm font-semibold text-slate-300 mb-2">
+        <label className="block mb-2 text-sm font-semibold text-slate-300">
           Email
         </label>
 
@@ -19,12 +19,12 @@ export default function LoginForm() {
           type="email"
           required
           placeholder="you@example.com"
-          className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-3 text-sm text-white placeholder-slate-500 bg-slate-800 border rounded-lg border-slate-700 focus:outline-none focus:border-blue-500 sm:px-4 sm:text-base"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-slate-300 mb-2">
+        <label className="block mb-2 text-sm font-semibold text-slate-300">
           Password
         </label>
 
@@ -32,13 +32,13 @@ export default function LoginForm() {
           type="password"
           required
           placeholder="Enter your password"
-          className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-3 text-sm text-white placeholder-slate-500 bg-slate-800 border rounded-lg border-slate-700 focus:outline-none focus:border-blue-500 sm:px-4 sm:text-base"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full py-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-400 transition"
+        className="w-full py-3 text-sm font-semibold text-white transition rounded-lg bg-blue-500 hover:bg-blue-400 sm:text-base"
       >
         Login
       </button>

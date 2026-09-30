@@ -42,22 +42,24 @@ export default function NewProject() {
   return (
     <>
       <Modal ref={modal} buttonCaption="Okay">
-        <h2 className="text-xl font-bold text-white mt-4 my-4">
+        <h2 className="mt-4 mb-4 text-xl font-bold text-white">
           Invalid Input
         </h2>
-        <p className="text-slate-300 mb-4">
+
+        <p className="mb-4 text-slate-300">
           Oops ... looks like you forgot to enter a value.
         </p>
-        <p className="text-slate-300 mb-4">
+
+        <p className="mb-4 text-slate-300">
           Please make sure you provide a valid value for every input field
         </p>
       </Modal>
 
-      <div className="w-140 mt-16">
-        <menu className="flex items-center justify-end gap-4 my-4 list-none">
+      <div className="w-full max-w-2xl px-4 mt-8 sm:px-6 md:px-0 md:mt-16">
+        <menu className="flex items-center justify-end gap-2 sm:gap-4 my-4 list-none">
           <li>
             <button
-              className="px-4 py-2 text-slate-400 hover:text-white"
+              className="px-3 py-2 text-sm text-slate-400 hover:text-white sm:px-4 sm:text-base"
               onClick={handleCancel}
             >
               Cancel
@@ -66,7 +68,7 @@ export default function NewProject() {
 
           <li>
             <button
-              className="px-6 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-400"
+              className="px-5 py-2 text-sm text-white bg-blue-500 rounded-md hover:bg-blue-400 sm:px-6 sm:text-base"
               onClick={handleSave}
             >
               Save

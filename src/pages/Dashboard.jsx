@@ -15,27 +15,32 @@ export default function Dashboard() {
     handleEditTask,
     handleEditProject,
   } = useOutletContext();
+
   const selectedProject = projectsState.projects.find(
     (project) => project.id === Number(projectId),
   );
 
   if (!selectedProject) {
     return (
-      <NoProjectSelected
-        onStartAddProject={() => navigate("/dashboard/new-project")}
-      />
+      <div className="w-full min-w-0">
+        <NoProjectSelected
+          onStartAddProject={() => navigate("/dashboard/new-project")}
+        />
+      </div>
     );
   }
 
   return (
-    <SelectedProject
-      project={selectedProject}
-      onDelete={handleDeleteProject}
-      onAddTask={handleAddTask}
-      onDeleteTask={handleDeleteTask}
-      onEditTask={handleEditTask}
-      onEditProject={handleEditProject}
-      tasks={projectsState.tasks}
-    />
+    <div className="w-full min-w-0">
+      <SelectedProject
+        project={selectedProject}
+        onDelete={handleDeleteProject}
+        onAddTask={handleAddTask}
+        onDeleteTask={handleDeleteTask}
+        onEditTask={handleEditTask}
+        onEditProject={handleEditProject}
+        tasks={projectsState.tasks}
+      />
+    </div>
   );
 }

@@ -24,25 +24,25 @@ export default function SelectedProject({
   });
 
   return (
-    <div className="w-140 mt-16">
+    <div className="w-full max-w-2xl mt-8 md:mt-16">
       <header className="pb-4 mb-4 border-b-2 border-slate-700">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           {isEditing ? (
             <input
               value={editedTitle}
               onChange={(event) => setEditedTitle(event.target.value)}
-              className="text-3xl font-bold bg-slate-800 text-white px-2 py-1 rounded"
+              className="min-w-0 flex-1 px-2 py-1 text-2xl font-bold text-white rounded bg-slate-800 sm:text-3xl"
             />
           ) : (
-            <h1 className="text-3xl font-bold text-white mb-2">
+            <h1 className="min-w-0 flex-1 mb-2 text-2xl font-bold text-white break-words sm:text-3xl">
               {project.title}
             </h1>
           )}
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             {isEditing ? (
               <button
-                className="px-4 py-2 text-green-400 hover:text-green-300"
+                className="px-2 py-2 text-sm text-green-400 hover:text-green-300 sm:px-4 sm:text-base"
                 onClick={() => {
                   onEditProject(project.id, editedTitle, editedDescription);
                   setIsEditing(false);
@@ -52,7 +52,7 @@ export default function SelectedProject({
               </button>
             ) : (
               <button
-                className="px-4 py-2 text-blue-400 hover:text-blue-300"
+                className="px-2 py-2 text-sm text-blue-400 hover:text-blue-300 sm:px-4 sm:text-base"
                 onClick={() => setIsEditing(true)}
               >
                 Edit
@@ -60,7 +60,7 @@ export default function SelectedProject({
             )}
 
             <button
-              className="px-4 py-2 text-slate-400 hover:text-red-500"
+              className="px-2 py-2 text-sm text-slate-400 hover:text-red-500 sm:px-4 sm:text-base"
               onClick={onDelete}
             >
               Delete
@@ -68,17 +68,19 @@ export default function SelectedProject({
           </div>
         </div>
 
-        <p className="mb-4 text-slate-400">{formattedDate}</p>
+        <p className="mb-4 text-sm text-slate-400 sm:text-base">
+          {formattedDate}
+        </p>
 
         {isEditing ? (
           <textarea
             value={editedDescription}
             onChange={(event) => setEditedDescription(event.target.value)}
-            className="w-full bg-slate-800 text-white p-2 rounded"
+            className="w-full p-2 text-sm text-white rounded bg-slate-800 sm:text-base"
             rows="4"
           />
         ) : (
-          <p className="text-slate-300 whitespace-pre-wrap">
+          <p className="text-sm text-slate-300 whitespace-pre-wrap sm:text-base">
             {project.description}
           </p>
         )}

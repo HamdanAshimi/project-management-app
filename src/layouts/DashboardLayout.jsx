@@ -94,7 +94,7 @@ export default function DashboardLayout() {
   }
 
   return (
-    <main className="h-screen my-8 flex gap-8">
+    <main className="my-4 flex min-h-screen flex-row gap-3 md:my-8 md:gap-8">
       <ProjectsSidebar
         onStartAddProject={() => navigate("/dashboard/new-project")}
         projects={projectsState.projects}
@@ -102,18 +102,20 @@ export default function DashboardLayout() {
         selectedProjectId={projectsState.selectedProjectId}
       />
 
-      <Outlet
-        context={{
-          projectsState,
-          handleAddProject,
-          handleSelectProject,
-          handleDeleteProject,
-          handleAddTask,
-          handleDeleteTask,
-          handleEditTask,
-          handleEditProject,
-        }}
-      />
+      <div className="min-w-0 flex-1">
+        <Outlet
+          context={{
+            projectsState,
+            handleAddProject,
+            handleSelectProject,
+            handleDeleteProject,
+            handleAddTask,
+            handleDeleteTask,
+            handleEditTask,
+            handleEditProject,
+          }}
+        />
+      </div>
     </main>
   );
 }

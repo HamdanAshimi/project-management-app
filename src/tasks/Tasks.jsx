@@ -37,29 +37,36 @@ export default function Tasks({ tasks, onAdd, onDelete, onEdit }) {
           {tasks.map((task) => (
             <li
               key={task.id}
-              className="flex justify-between items-center my-4 text-slate-300"
+              className="my-4 flex items-center gap-2 text-slate-300 sm:gap-4"
             >
               {editingTaskId === task.id ? (
                 <input
                   value={editedText}
                   onChange={(event) => setEditedText(event.target.value)}
-                  className="bg-slate-800 text-white px-2 py-1 rounded"
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      handleSaveEdit(task.id);
+                    }
+                  }}
+                  className="min-w-0 flex-1 rounded border border-slate-700 bg-slate-800 px-2 py-2 text-sm text-white focus:border-blue-500 focus:outline-none sm:text-base"
                 />
               ) : (
-                <span>{task.text}</span>
+                <span className="min-w-0 flex-1 break-words text-sm sm:text-base">
+                  {task.text}
+                </span>
               )}
 
-              <div className="flex gap-4">
+              <div className="flex shrink-0 items-center gap-2 sm:gap-4">
                 {editingTaskId === task.id ? (
                   <button
-                    className="text-green-400 hover:text-green-300"
+                    className="rounded-md bg-green-500 px-2 py-2 text-xs font-medium text-white hover:bg-green-400 sm:px-3 sm:text-sm"
                     onClick={() => handleSaveEdit(task.id)}
                   >
                     Save
                   </button>
                 ) : (
                   <button
-                    className="text-blue-400 hover:text-blue-300"
+                    className="rounded-md bg-blue-500 px-2 py-2 text-xs font-medium text-white hover:bg-blue-400 sm:px-3 sm:text-sm"
                     onClick={() => handleEditClick(task)}
                   >
                     Edit
@@ -67,7 +74,7 @@ export default function Tasks({ tasks, onAdd, onDelete, onEdit }) {
                 )}
 
                 <button
-                  className="text-slate-400 hover:text-red-500"
+                  className="rounded-md px-2 py-2 text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-red-400 sm:px-3 sm:text-sm"
                   onClick={() => onDelete(task.id)}
                 >
                   Clear
