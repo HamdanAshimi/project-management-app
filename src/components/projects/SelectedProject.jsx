@@ -34,7 +34,7 @@ export default function SelectedProject({
               className="min-w-0 flex-1 px-2 py-1 text-2xl font-bold text-white rounded bg-slate-800 sm:text-3xl"
             />
           ) : (
-            <h1 className="min-w-0 flex-1 mb-2 text-2xl font-bold text-white break-words sm:text-3xl">
+            <h1 className="min-w-0 flex-1 mb-2 text-2xl font-bold text-white wrap-break-word sm:text-3xl">
               {project.title}
             </h1>
           )}

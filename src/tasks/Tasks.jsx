@@ -51,7 +51,7 @@ export default function Tasks({ tasks, onAdd, onDelete, onEdit }) {
                   className="min-w-0 flex-1 rounded border border-slate-700 bg-slate-800 px-2 py-2 text-sm text-white focus:border-blue-500 focus:outline-none sm:text-base"
                 />
               ) : (
-                <span className="min-w-0 flex-1 break-words text-sm sm:text-base">
+                <span className="min-w-0 flex-1 wrap-break-word text-sm sm:text-base">
                   {task.text}
                 </span>
               )}
